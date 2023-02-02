@@ -1,7 +1,6 @@
 # Powershell-ScheduledTask-LastTaskResult-Check-SMTP
 Script Powershell checking the result code of a ScheduledTask and send an email if their is an error
 
-#######################################################################################################################################################################
 
 ```$taskName = "ColEdi_Externe"
 $result = Get-ScheduledTaskInfo -TaskPath (Get-ScheduledTask -TaskName $taskName).TaskPath
