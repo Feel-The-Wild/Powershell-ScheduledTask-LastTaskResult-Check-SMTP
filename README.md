@@ -3,7 +3,7 @@ Script Powershell checking the result code of a ScheduledTask and send an email 
 
 #######################################################################################################################################################################
 
-$taskName = "ColEdi_Externe"
+```$taskName = "ColEdi_Externe"
 $result = Get-ScheduledTaskInfo -TaskPath (Get-ScheduledTask -TaskName $taskName).TaskPath
 
 $hex = "0x"+"{0:x}" -f  $result.LastTaskResult
@@ -87,6 +87,7 @@ $props = @{
 if ($result -ne 0x0) {
   Send-MailMessage @props $body
 }
+```
   
 
 
