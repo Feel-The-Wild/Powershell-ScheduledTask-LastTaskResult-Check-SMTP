@@ -5,9 +5,11 @@ Script Powershell checking the result code of a ScheduledTask and send an email 
 ```$taskName = "ColEdi_Externe"
 $result = Get-ScheduledTaskInfo -TaskPath (Get-ScheduledTask -TaskName $taskName).TaskPath
 
+echo $result.LastTaskResult
+
 $hex = "0x"+"{0:x}" -f  $result.LastTaskResult
 
-echo $result.LastTaskResult
+echo $hex
 
 $errorMsg = $(switch($hex){
 
@@ -83,7 +85,7 @@ $props = @{
     Credential = New-Object System.Management.Automation.PSCredential($sendmbx,$pwd_2)
 }
 
-if ($result -ne 0x0) {
+if ($hex -ne 0x0) {
   Send-MailMessage @props $body
 }
 ```
