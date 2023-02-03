@@ -66,12 +66,12 @@ $errorMsg = $(switch($hex){
         default {'No matching error'}
     })
 
-$pwd_1 = "Pl@nTach456!!*"
+$pwd_1 = ""
 $pwd_2 = ConvertTo-SecureString $pwd_1 -AsPlainText -Force
 
-$sendmbx = "Tache-Planifier@pro-living.fr"
+$sendmbx = ""
 
-$receivembx = "willy.meslin@pro-living.fr"
+$receivembx = ""
 
 $body = "La tache planifiee : $taskName n'a pas pu s'executer correctement est voici la raison $hex : $errorMsg"
 
