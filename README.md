@@ -2,10 +2,10 @@
 Script Powershell checking the result code of a ScheduledTask and send an email if their is an error
 
 
-```$taskName = "ColEdi_Externe"
-$result = Get-ScheduledTaskInfo -TaskPath (Get-ScheduledTask -TaskName $taskName).TaskPath
+```$taskName = "FTP_DISPOR_GEFCO"
+$result = Get-ScheduledTask -TaskName $taskName | Get-ScheduledTaskInfo
 
-echo $result.LastTaskResult
+echo $result
 
 $hex = "0x"+"{0:x}" -f  $result.LastTaskResult
 
@@ -66,28 +66,34 @@ $errorMsg = $(switch($hex){
         default {'No matching error'}
     })
 
-$pwd_1 = ""
+$pwd_1 = "Pl@nTach456!!*"
 $pwd_2 = ConvertTo-SecureString $pwd_1 -AsPlainText -Force
 
-$sendmbx = ""
+$sendmbx = "Tache-Planifier@pro-living.fr"
 
-$receivembx = ""
+$receivembx = "willy.meslin@pro-living.fr"
 
-$body = "La tâche planifiée : $taskName n'a pas pu s'executer correctement est voici son code erreur : $errorMsg"
+$body = "La tache planifiee : $taskName n'a pas pu s'executer correctement est voici la raison $hex : $errorMsg"
 
 $props = @{
     SMTPServer = "smtp.office365.com"
     From = $sendmbx
     To = $receivembx
-    Subject = "La tâche planifiée : $taskName n'a pas pu s'executer correctement"
+    Subject = "La tache planifiee : $taskName n'a pas pu s'executer correctement"
     UseSSL = $true
     port = 587
     Credential = New-Object System.Management.Automation.PSCredential($sendmbx,$pwd_2)
 }
 
-if ($hex -ne 0x0) {
+
+if ($hex -ne "0x0") {
   Send-MailMessage @props $body
+  echo "Le mail a ete envoyé"
+}else{
+  echo "Rien à envoyer"
 }
+
+
 ```
   
 
