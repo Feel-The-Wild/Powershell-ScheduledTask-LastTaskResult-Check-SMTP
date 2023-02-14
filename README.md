@@ -91,6 +91,7 @@ if ($hex -ne "0x0") {
   echo "Le mail a ete envoyé"
 }else{
   echo "Rien à envoyer"
+  end
 }
 
 
