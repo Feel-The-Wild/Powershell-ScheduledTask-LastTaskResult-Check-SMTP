@@ -7,12 +7,13 @@ ________________________________________________________________________________
 
 Outlook Profile :
 
-On your outlook profile, go into "Courrier"
+-On your outlook profile, go into "Courrier"
 
 ![Capture d’écran du 2023-02-14 10-48-59](https://user-images.githubusercontent.com/103247504/218699741-52d595d5-9e3f-4883-b886-7f0d9ea1d2e9.png)
 
-Clic on "Gerer les applications de courrier"
-Activate "SNMP Authentifie"
+-Clic on "Gerer les applications de courrier"
+
+-Activate "SNMP Authentifie"
 
 ![Capture d’écran du 2023-02-14 10-52-35](https://user-images.githubusercontent.com/103247504/218700594-23aaea21-a26f-4dc1-b4e7-d332a19ad65a.png)
 
